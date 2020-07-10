@@ -2,7 +2,7 @@
 
 return [
 
-    'backup' => [
+    'backup'          => [
 
         /*
          * The name of this application. You can use this name to monitor
@@ -10,14 +10,14 @@ return [
          */
         'name' => env('APP_NAME', 'laravel-backup'),
 
-        'source' => [
+        'source'                   => [
 
-            'files' => [
+            'files'     => [
 
                 /*
                  * The list of directories and files that will be included in the backup.
                  */
-                'include' => [
+                'include'                       => [
                     base_path(),
                 ],
 
@@ -26,7 +26,7 @@ return [
                  *
                  * Directories used by the backup process will automatically be excluded.
                  */
-                'exclude' => [
+                'exclude'                       => [
                     base_path('vendor'),
                     base_path('node_modules'),
                 ],
@@ -34,7 +34,7 @@ return [
                 /*
                  * Determines if symlinks should be followed.
                  */
-                'follow_links' => false,
+                'follow_links'                  => false,
 
                 /*
                  * Determines if it should avoid unreadable folders.
@@ -90,7 +90,7 @@ return [
          */
         'database_dump_compressor' => null,
 
-        'destination' => [
+        'destination'         => [
 
             /*
              * The filename prefix used for the backup zip file.
@@ -100,7 +100,7 @@ return [
             /*
              * The disk names on which the backups will be stored.
              */
-            'disks' => [
+            'disks'           => [
                 'local',
             ],
         ],
@@ -118,29 +118,29 @@ return [
      * You can also use your own notification classes, just make sure the class is named after one of
      * the `Spatie\Backup\Events` classes.
      */
-    'notifications' => [
+    'notifications'   => [
 
         'notifications' => [
-            \Spatie\Backup\Notifications\Notifications\BackupHasFailed::class => ['mail'],
+            \Spatie\Backup\Notifications\Notifications\BackupHasFailed::class         => ['mail'],
             \Spatie\Backup\Notifications\Notifications\UnhealthyBackupWasFound::class => ['mail'],
-            \Spatie\Backup\Notifications\Notifications\CleanupHasFailed::class => ['mail'],
-            \Spatie\Backup\Notifications\Notifications\BackupWasSuccessful::class => ['mail'],
-            \Spatie\Backup\Notifications\Notifications\HealthyBackupWasFound::class => ['mail'],
-            \Spatie\Backup\Notifications\Notifications\CleanupWasSuccessful::class => ['mail'],
+            \Spatie\Backup\Notifications\Notifications\CleanupHasFailed::class        => ['mail'],
+            \Spatie\Backup\Notifications\Notifications\BackupWasSuccessful::class     => ['mail'],
+            \Spatie\Backup\Notifications\Notifications\HealthyBackupWasFound::class   => ['mail'],
+            \Spatie\Backup\Notifications\Notifications\CleanupWasSuccessful::class    => ['mail'],
         ],
 
         /*
          * Here you can specify the notifiable to which the notifications should be sent. The default
          * notifiable will use the variables specified in this config file.
          */
-        'notifiable' => \Spatie\Backup\Notifications\Notifiable::class,
+        'notifiable'    => \Spatie\Backup\Notifications\Notifiable::class,
 
         'mail' => [
             'to' => 'your@example.com',
 
             'from' => [
                 'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-                'name' => env('MAIL_FROM_NAME', 'Example'),
+                'name'    => env('MAIL_FROM_NAME', 'Example'),
             ],
         ],
 
@@ -150,7 +150,7 @@ return [
             /*
              * If this is set to null the default channel of the webhook will be used.
              */
-            'channel' => null,
+            'channel'     => null,
 
             'username' => null,
 
@@ -166,10 +166,10 @@ return [
      */
     'monitor_backups' => [
         [
-            'name' => env('APP_NAME', 'laravel-backup'),
-            'disks' => ['local'],
+            'name'          => env('APP_NAME', 'laravel-backup'),
+            'disks'         => ['local'],
             'health_checks' => [
-                \Spatie\Backup\Tasks\Monitor\HealthChecks\MaximumAgeInDays::class => 1,
+                \Spatie\Backup\Tasks\Monitor\HealthChecks\MaximumAgeInDays::class          => 1,
                 \Spatie\Backup\Tasks\Monitor\HealthChecks\MaximumStorageInMegabytes::class => 5000,
             ],
         ],
@@ -203,27 +203,27 @@ return [
             /*
              * The number of days for which backups must be kept.
              */
-            'keep_all_backups_for_days' => 7,
+            'keep_all_backups_for_days'                            => 7,
 
             /*
              * The number of days for which daily backups must be kept.
              */
-            'keep_daily_backups_for_days' => 16,
+            'keep_daily_backups_for_days'                          => 16,
 
             /*
              * The number of weeks for which one weekly backup must be kept.
              */
-            'keep_weekly_backups_for_weeks' => 8,
+            'keep_weekly_backups_for_weeks'                        => 8,
 
             /*
              * The number of months for which one monthly backup must be kept.
              */
-            'keep_monthly_backups_for_months' => 4,
+            'keep_monthly_backups_for_months'                      => 4,
 
             /*
              * The number of years for which one yearly backup must be kept.
              */
-            'keep_yearly_backups_for_years' => 2,
+            'keep_yearly_backups_for_years'                        => 2,
 
             /*
              * After cleaning up the backups remove the oldest backup until

@@ -37,4 +37,22 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function redirectToProvider()
+    {
+        return \Socialite::driver('github')->redirect();
+    }
+
+    /**
+     *
+     */
+    public function handleProviderCallback()
+    {
+        $user = \Socialite::driver('github')->user();
+        dd($user);
+        // $user->token;
+    }
 }
