@@ -25,6 +25,11 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
+
+        $schedule->call(function () {
+            \Artisan::call('backup:run');
+            \Artisan::call('backup:clean');
+        })->hourly();
     }
 
     /**

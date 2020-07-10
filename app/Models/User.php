@@ -1,14 +1,20 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
+use App\Traits\SoftDeletes;
+use App\Traits\Uuid;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Passport\HasApiTokens;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
-    use Notifiable;
+    use HasApiTokens, Notifiable, SoftDeletes, Uuid;
+
+    public    $incrementing = false;
+    protected $keyType      = 'string';
 
     /**
      * The attributes that are mass assignable.

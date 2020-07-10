@@ -62,6 +62,13 @@
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan view:clear",
+            "@php artisan route:clear",
+            "@php artisan optimize:clear",
+            "@php artisan event:clear",
+            "@php artisan config:clear",
+            "@php artisan cache:clear",
+            "@php artisan auth:clear-resets",
             "@php artisan package:discover --ansi"
         ],
         "post-root-package-install": [

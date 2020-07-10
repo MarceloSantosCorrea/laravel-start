@@ -45,24 +45,32 @@ return [
 
         'local' => [
             'driver' => 'local',
-            'root' => storage_path('app'),
+            'root'   => storage_path('app'),
         ],
 
         'public' => [
-            'driver' => 'local',
-            'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
+            'driver'     => 'local',
+            'root'       => storage_path('app/public'),
+            'url'        => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],
 
         's3' => [
-            'driver' => 's3',
-            'key' => env('AWS_ACCESS_KEY_ID'),
-            'secret' => env('AWS_SECRET_ACCESS_KEY'),
-            'region' => env('AWS_DEFAULT_REGION'),
-            'bucket' => env('AWS_BUCKET'),
-            'url' => env('AWS_URL'),
+            'driver'   => 's3',
+            'key'      => env('AWS_ACCESS_KEY_ID'),
+            'secret'   => env('AWS_SECRET_ACCESS_KEY'),
+            'region'   => env('AWS_DEFAULT_REGION'),
+            'bucket'   => env('AWS_BUCKET'),
+            'url'      => env('AWS_URL'),
             'endpoint' => env('AWS_ENDPOINT'),
+        ],
+
+        'google' => [
+            'driver'       => 'google',
+            'clientId'     => '742239462997-sgpevm55s7k5l31f298p57udsikgbd0j.apps.googleusercontent.com',
+            'clientSecret' => '4ZpNF-iszn3jvXHetj9VLL-o',
+            'refreshToken' => '1//04w8b0fkrPSZ0CgYIARAAGAQSNwF-L9IrNYYXVuhA4jEWeuKfXKZnjmOT6swyph5ElWDofra6QDOb6B0PVcPMVgETtMSDefzPVDo',
+            'folderId'     => '1ygpAUsyOvR2tdGAPO_dR61wDgdwpvoOp',
         ],
 
     ],
